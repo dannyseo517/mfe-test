@@ -15,6 +15,23 @@ const config: ModuleFederationConfig = {
    *
    */
   remotes: [],
+  shared: (packageName: string) => {
+    if (packageName === 'react') {
+      return {
+        singleton: true,
+        eager: true,
+        requiredVersion: '^19.0.0',
+      };
+    }
+    if (packageName === 'react-dom') {
+      return {
+        singleton: true,
+        eager: true,
+        requiredVersion: '^19.0.0',
+      };
+    }
+    return undefined;
+  }
 };
 
 /**
